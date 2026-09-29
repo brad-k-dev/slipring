@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Slipring</title>
+<meta name="description" content="A dot runs a ring. Tap to send it the other way. Arcs close in with a single gap — be in the gap. A one-tap arcade game for iPhone. No ads, no purchases, no tracking.">
+<meta property="og:title" content="Slipring">
+<meta property="og:description" content="One tap. One dot. One ring.">
+<meta property="og:image" content="icon.png">
+<link rel="icon" href="icon-small.png">
+<style>
+  :root {
+    --bg: #080b14;
+    --field: #0e1422;
+    --ink: #eef1f7;
+    --dim: #8c93a5;
+    --line: #1e2637;
+    --hot: #ff3b52;
+    --glow: #ffc75a;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font: 400 17px/1.65 ui-rounded, "SF Pro Rounded", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    background-image: radial-gradient(120% 70% at 50% -10%, #16203a 0%, var(--bg) 60%);
+  }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 16px; }
+  header { text-align: center; padding: 84px 0 56px; }
+  header img { width: 104px; height: 104px; border-radius: 23%; box-shadow: 0 18px 50px rgba(0,0,0,.6); }
+  h1 { font-size: 46px; font-weight: 800; letter-spacing: .12em; margin: 26px 0 6px; }
+  .tag { color: var(--dim); font-size: 18px; letter-spacing: .04em; margin: 0; }
+  .badge {
+    display: inline-block; margin-top: 30px; padding: 13px 26px; border-radius: 999px;
+    background: var(--ink); color: #0a0d16; text-decoration: none;
+    font-weight: 700; font-size: 15px; letter-spacing: .02em;
+  }
+  .badge.soon { background: transparent; color: var(--dim); border: 1px solid var(--line); }
+
+  section { padding: 44px 0; border-top: 1px solid var(--line); }
+  h2 { font-size: 13px; font-weight: 700; letter-spacing: .22em; color: var(--dim);
+       text-transform: uppercase; margin: 0 0 22px; }
+  p { margin: 0 0 16px; }
+  .lead { font-size: 21px; line-height: 1.55; }
+  .dim { color: var(--dim); }
+
+  .rules { display: grid; gap: 14px; grid-template-columns: repeat(3, 1fr); margin: 0; padding: 0; list-style: none; }
+  .rules li { background: var(--field); border: 1px solid var(--line); border-radius: 14px; padding: 18px 18px 20px; }
+  .rules b { display: block; font-size: 15px; margin-bottom: 4px; }
+  .rules span { color: var(--dim); font-size: 15px; }
+
+  .shots { display: flex; gap: 14px; overflow-x: auto; padding-bottom: 8px; scroll-snap-type: x mandatory; }
+  .shots img { width: 208px; flex: 0 0 auto; border-radius: 18px; border: 1px solid var(--line); scroll-snap-align: start; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 16px; }
+  td { padding: 11px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+  td:first-child { color: var(--glow); width: 92px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  tr:last-child td { border-bottom: 0; }
+
+  ul.plain { margin: 0; padding-left: 20px; }
+  ul.plain li { margin-bottom: 8px; }
+  a { color: var(--ink); }
+  footer { padding: 40px 0 70px; color: var(--dim); font-size: 15px; text-align: center; border-top: 1px solid var(--line); }
+  footer a { color: var(--dim); }
+
+  @media (max-width: 620px) {
+    header { padding: 56px 0 40px; }
+    h1 { font-size: 36px; }
+    .lead { font-size: 19px; }
+    .rules { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <img src="icon.png" alt="Slipring app icon">
+    <h1>SLIPRING</h1>
+    <p class="tag">One tap. One dot. One ring.</p>
+    <span class="badge soon">Coming to the App Store</span>
+  </header>
+
+  <section>
+    <p class="lead">A dot runs a ring. Tap to send it the other way. Arcs close in
+    from the dark, each with a single gap. Be in the gap.</p>
+    <p class="dim">That is the whole game and you will have it in three seconds.
+    What takes longer is the ring.</p>
+  </section>
+
+  <section>
+    <h2>The rule</h2>
+    <ul class="rules">
+      <li><b>The dot never stops</b><span>It runs the ring on its own, always.</span></li>
+      <li><b>Tap reverses it</b><span>That is the only control there is.</span></li>
+      <li><b>Arcs have one gap</b><span>Be standing in it when the arc arrives.</span></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Screens</h2>
+    <div class="shots">
+      <img src="shots/1-menu.png" alt="The menu, playing itself as a demo">
+      <img src="shots/2-play.png" alt="An arc closing in mid-run">
+      <img src="shots/3-arcs.png" alt="Later in a run, with faster arcs">
+      <img src="shots/4-best.png" alt="A new best score">
+      <img src="shots/5-retry.png" alt="The game over screen showing how far short the run fell">
+    </div>
+  </section>
+
+  <section>
+    <h2>What the ring starts doing</h2>
+    <p class="dim">The gap narrows and the arcs quicken, but a curve alone gets dull.
+    So arcs take on behaviours as you go. Each one turns up on its own, gently the
+    first few times, then in earnest.</p>
+    <table>
+      <tr><td>from 5</td><td><b>Drifting</b> — the gap slides while you aim at it, so aiming where it <em>is</em> misses.</td></tr>
+      <tr><td>from 11</td><td><b>Twin</b> — two arcs back to back, gaps on opposite sides. A committed there-and-back.</td></tr>
+      <tr><td>from 18</td><td><b>Fast</b> — arrives before you have finished thinking. Thin and pale, so you know early.</td></tr>
+      <tr><td>from 40</td><td><b>Combined</b> — twins that drift, fast arcs that drift. New shapes, no new rules.</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>Fair by construction</h2>
+    <p class="dim">No gap is ever placed where you could not have reached it. Where the
+    next gap can appear is computed from how fast you can cross the ring, minus the
+    worst case drift and the time a person needs to react. Every death is one you can
+    point at.</p>
+  </section>
+
+  <section>
+    <h2>What it does not do</h2>
+    <ul class="plain dim">
+      <li>No ads and no purchases. There is nothing to buy.</li>
+      <li>No account, no sign-in, no network requests at all. It works on a plane.</li>
+      <li>Collects nothing. Your best score is written on your device and stays there.</li>
+      <li>Every sound is synthesised when the app launches — the tone climbs with your streak and falls with you.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Support</h2>
+    <p>Something broken, or an idea? Write to
+      <a href="mailto:slipring.support@gmail.com">slipring.support@gmail.com</a>,
+      or <a href="https://github.com/brad-k-dev/slipring/issues">open an issue</a> if you would rather it were public.
+      Replies usually come within a couple of days.</p>
+  </section>
+
+  <footer>
+    <a href="privacy.html">Privacy</a> &nbsp;·&nbsp; © 2026 Busik Kim
+  </footer>
+
+</div>
+</body>
+</html>
